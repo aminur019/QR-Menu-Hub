@@ -1,0 +1,1157 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   QRMenuHub
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   .scroll-reveal {
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+   }
+   .scroll-reveal.visible {
+     opacity: 1;
+     transform: translateY(0);
+   }
+   .hover-zoom:hover img {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+    }
+	.timeline-step:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .timeline-step {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .timeline-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+		       }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+		
+	 @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .slide-in-left {
+                animation: slideInLeft 1s ease-out;
+            }
+
+            .slide-in-right {
+                animation: slideInRight 1s ease-out;
+            }
+        
+  </style>
+ </head>
+ <body class="font-roboto">
+  <!-- Header -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+   <div class="container mx-auto flex justify-between items-center p-4">
+    <!-- Logo -->
+    <div class="flex items-center">
+     <img alt="QRMenuHub logo with a QR code icon and the company name in modern, sans-serif typography" class="h-10" height="50" src="https://storage.googleapis.com/a1aa/image/slsQQ5EfZ00wIKhElUdYXqXxhwx17LL3Smz5zmpShTJVHqDKA.jpg" width="150"/>
+    </div>
+    <!-- Navigation Menu -->
+    <nav class="hidden md:flex space-x-6">
+     <a class="text-gray-700 hover:text-blue-500" href="#">
+      Home
+     </a>
+     <a class="text-gray-700 hover:text-blue-500" href="#">
+      How It Works
+     </a>
+     <a class="text-gray-700 hover:text-blue-500" href="#">
+      Features
+     </a>
+     <a class="text-gray-700 hover:text-blue-500" href="#">
+      Pricing
+     </a>
+     <a class="text-gray-700 hover:text-blue-500" href="#">
+      Industries
+     </a>
+     <a class="text-gray-700 hover:text-blue-500" href="#">
+      Contact
+     </a>
+     <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      Get Started
+     </button>
+    </nav>
+    <!-- Hamburger Menu -->
+    <div class="md:hidden flex items-center">
+     <button class="text-gray-700 focus:outline-none" id="menu-btn">
+      <i class="fas fa-bars text-2xl">
+      </i>
+     </button>
+    </div>
+   </div>
+   <!-- Mobile Menu -->
+   <div class="hidden md:hidden" id="mobile-menu">
+    <a class="block px-4 py-2 text-gray-700 hover:bg-gray-200" href="#">
+     Home
+    </a>
+    <a class="block px-4 py-2 text-gray-700 hover:bg-gray-200" href="#">
+     How It Works
+    </a>
+    <a class="block px-4 py-2 text-gray-700 hover:bg-gray-200" href="#">
+     Features
+    </a>
+    <a class="block px-4 py-2 text-gray-700 hover:bg-gray-200" href="#">
+     Pricing
+    </a>
+    <a class="block px-4 py-2 text-gray-700 hover:bg-gray-200" href="#">
+     Industries
+    </a>
+    <a class="block px-4 py-2 text-gray-700 hover:bg-gray-200" href="#">
+     Contact
+    </a>
+    <button class="block w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+     Get Started
+    </button>
+   </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center" style="height: 80vh;">
+   <img alt="Background image showing a person scanning a QR code on a smartphone in a restaurant setting" class="absolute inset-0 w-full h-full object-cover" height="1080" src="https://storage.googleapis.com/a1aa/image/3jvbmUWHHKZCGxzieyYLqCrRKf9pebDAfeQ4WS0izlSl1h6gC.jpg" width="1920"/>
+   <div class="absolute inset-0 bg-black opacity-60">
+   </div>
+   <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+    <h1 class="text-4xl md:text-6xl font-bold">
+     Revolutionizing Dining and Business with Digital Menus
+    </h1>
+    <p class="mt-4 text-lg md:text-2xl">
+     Simplify and elevate your business with interactive, up-to-date, and eco-friendly digital menus.
+    </p>
+    <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">
+     Get Started
+    </button>
+   </div>
+  </section>
+  <!-- Introduction to QRMenuHub Section -->
+  <section class="bg-gray-100 py-16">
+   <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2 text-center md:text-left">
+     <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+      Welcome to QRMenuHub: Your Digital Menu Solution
+     </h2>
+     <h3 class="text-xl md:text-2xl text-gray-600 mt-4">
+      Empowering your business with seamless, interactive, and eco-friendly digital menus.
+     </h3>
+     <p class="mt-6 text-gray-700 text-lg md:text-xl">
+      QRMenuHub allows businesses to seamlessly transition from paper menus to dynamic digital experiences that enhance customer engagement and simplify menu management.
+     </p>
+     <p class="mt-2 text-gray-700 text-lg md:text-xl">
+      From restaurants to salons, our platform offers a fully customizable solution to keep your menu up-to-date, eco-friendly, and accessible at the scan of a QR code.
+     </p>
+     <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">
+      Get Started
+     </button>
+    </div>
+    <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
+     <img alt="Image showing a customer in a restaurant scanning a QR code on their smartphone to view a digital menu" class="w-full h-auto rounded-lg shadow-lg" height="500" src="https://storage.googleapis.com/a1aa/image/3jvbmUWHHKZCGxzieyYLqCrRKf9pebDAfeQ4WS0izlSl1h6gC.jpg" width="800"/>
+    </div>
+   </div>
+  </section>
+  <!-- Key Benefits Section -->
+  <section class="bg-white py-16">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+      <i class="fas fa-sync-alt text-4xl text-blue-500 mb-4">
+      </i>
+      <h4 class="text-xl font-bold text-gray-800">
+       Real-Time Updates
+      </h4>
+      <p class="mt-2 text-gray-600">
+       Easy, customizable digital menus that update in real-time.
+      </p>
+     </div>
+     <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+      <i class="fas fa-leaf text-4xl text-green-500 mb-4">
+      </i>
+      <h4 class="text-xl font-bold text-gray-800">
+       Eco-Friendly
+      </h4>
+      <p class="mt-2 text-gray-600">
+       No more paper waste—go green with digital solutions.
+      </p>
+     </div>
+     <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+      <i class="fas fa-mobile-alt text-4xl text-purple-500 mb-4">
+      </i>
+      <h4 class="text-xl font-bold text-gray-800">
+       Interactive Experience
+      </h4>
+      <p class="mt-2 text-gray-600">
+       Seamless, interactive experiences for customers.
+      </p>
+     </div>
+     <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+      <i class="fas fa-store text-4xl text-orange-500 mb-4">
+      </i>
+      <h4 class="text-xl font-bold text-gray-800">
+       Versatile Use
+      </h4>
+      <p class="mt-2 text-gray-600">
+       Works for any business—from restaurants to salons.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="py-16 px-4 md:px-8 lg:px-16">
+   <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold text-gray-800 scroll-reveal">
+     How QRMenuHub Works
+    </h2>
+    <h3 class="text-xl text-gray-500 mt-4 scroll-reveal">
+     Simplifying your business operations with three easy steps.
+    </h3>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Step 1 -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal">
+     <div class="flex justify-center mb-4">
+      <i class="fas fa-user-edit text-4xl text-blue-500">
+      </i>
+     </div>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Sign Up &amp; Customize Your Menu
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Create an account and easily upload or customize your menu to suit your business. Whether you’re a restaurant, bakery, or salon, QRMenuHub lets you design a digital menu tailored to your brand.
+     </p>
+     <img alt="Dashboard interface showing menu customization options" class="w-full rounded-lg" height="200" src="https://storage.googleapis.com/a1aa/image/6mQeuK65vyQ6OiT4kCjvU8tffT3O2HMnOEjENiSBcXHxtoOoA.jpg" width="300"/>
+    </div>
+    <!-- Step 2 -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal">
+     <div class="flex justify-center mb-4">
+      <i class="fas fa-qrcode text-4xl text-green-500">
+      </i>
+     </div>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Generate QR Code
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Generate a personalized QR code for your menu. This QR code can be placed on tables, counters, or your website, making it easy for customers to access your menu instantly with a simple scan.
+     </p>
+     <img alt="Generating a QR code on the platform" class="w-full rounded-lg" height="200" src="https://storage.googleapis.com/a1aa/image/DYHPDMld4A5AFtdCdiQBeLbmYFxslGvAeZbcGEhovwT5WUHUA.jpg" width="300"/>
+    </div>
+    <!-- Step 3 -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal">
+     <div class="flex justify-center mb-4">
+      <i class="fas fa-mobile-alt text-4xl text-red-500">
+      </i>
+     </div>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Share &amp; Engage Customers
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Place your QR codes in your business—on tables, countertops, menus, or digital displays. Customers scan the code to access your up-to-date, interactive digital menu anytime, anywhere.
+     </p>
+     <img alt="Customer scanning a QR code at a restaurant table" class="w-full rounded-lg" height="200" src="https://storage.googleapis.com/a1aa/image/COyUv0reZb3cU6T2SN12ynfLhUjS7prztaZx4AFrHQk3WUHUA.jpg" width="300"/>
+    </div>
+   </div>
+   <div class="text-center mt-12">
+    <h4 class="text-2xl font-bold text-gray-800 mb-4 scroll-reveal">
+     Key Benefits
+    </h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal">
+      <div class="flex justify-center mb-4">
+       <i class="fas fa-sync-alt text-4xl text-blue-500">
+       </i>
+      </div>
+      <p class="text-gray-600">
+       Real-time updates ensure your menu is always current.
+      </p>
+     </div>
+     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal">
+      <div class="flex justify-center mb-4">
+       <i class="fas fa-paint-brush text-4xl text-green-500">
+       </i>
+      </div>
+      <p class="text-gray-600">
+       Fully customizable to match your brand.
+      </p>
+     </div>
+     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal">
+      <div class="flex justify-center mb-4">
+       <i class="fas fa-leaf text-4xl text-red-500">
+       </i>
+      </div>
+      <p class="text-gray-600">
+       Engage customers with visually appealing, interactive menus.
+      </p>
+     </div>
+     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal">
+      <div class="flex justify-center mb-4">
+       <i class="fas fa-money-bill-wave text-4xl text-yellow-500">
+       </i>
+      </div>
+      <p class="text-gray-600">
+       Save costs and reduce paper waste.
+      </p>
+     </div>
+    </div>
+   </div>
+   <div class="text-center mt-12 scroll-reveal">
+    <a class="bg-blue-500 text-white text-lg font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-600 transition-colors duration-300" href="#">
+     Get Started
+    </a>
+   </div>
+  </section>
+   <section class="py-16 px-4 md:px-8 lg:px-16">
+   <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold text-gray-800 scroll-reveal">
+     Industries We Serve
+    </h2>
+    <h3 class="text-xl text-gray-500 mt-4 scroll-reveal">
+     QRMenuHub caters to businesses of all sizes, from dining establishments to salons and beyond.
+    </h3>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Industry 1: Restaurants -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Restaurant setting with a dining table and QR codes" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/21Fu3zasTe3CSaBxbSgycQezkW3oAS2wr3wXJLv34leiBpOoA.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Restaurants
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Elevate your dining experience by offering customers easy access to your up-to-date digital menu with just a scan of a QR code.
+     </p>
+    </div>
+    <!-- Industry 2: Bakeries -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Bakery items like cakes and pastries with a QR code" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/9A5eawL3fFkdX0Eoh7fl6e7OzxEDMgQxarfotPpEys58Fk6gC.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Bakeries
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Allow your customers to easily browse your selection of fresh baked goods and place orders directly from their phones with a digital menu.
+     </p>
+    </div>
+    <!-- Industry 3: Salons & Spas -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Customer interacting with a digital menu at a salon" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/Hh8nJYJs8SYCJhxeeeS5fidCn9tX59ySCIxeTpiYrEBEFk6gC.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Salons &amp; Spas
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Offer your clients a seamless booking experience and showcase your services with interactive digital menus that can be updated in real-time.
+     </p>
+    </div>
+    <!-- Industry 4: Cafes & Coffee Shops -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Cozy cafe setting with customers scanning a QR code" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/fclV2HG79D06HSSK00vyxXjAI9LBt5tgZiKTUH7enmGugUHUA.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Cafes &amp; Coffee Shops
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Create a convenient and engaging experience for your customers by showcasing your coffee and snack menu digitally.
+     </p>
+    </div>
+    <!-- Industry 5: Retail Stores -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Retail store with products and a QR code" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/Nfg6G8evNAhJHUOmGY92wEFQPyhDuMaKh80P9iGhqkVqgUHUA.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Retail Stores
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Showcase your products with a digital catalog, making it easy for customers to browse and purchase items directly from their phones.
+     </p>
+    </div>
+    <!-- Industry 6: Hotels & Resorts -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Hotel room service with a QR code" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/Q8xnTCRdbdpHEhDBskGTsKCc94X036GnWKSGbx1FBGLLI1BF.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Hotels &amp; Resorts
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Provide digital room service menus or in-room dining options, enhancing the guest experience with easy access to your services.
+     </p>
+    </div>
+    <!-- Industry 7: Event Venues -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Event venue with a digital menu for catering services" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/vhRjGD6Lp7ZACFWPBJE8ieuVuuDz0B7vXyHBtDeu7yAngUHUA.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Event Venues
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Offer interactive menus for event bookings or catering services, making it easy for clients to explore and select options.
+     </p>
+    </div>
+	 <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Event venue with a digital menu for catering services" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/AqXiDKKeFURbSCiIRZ3oWy6WbcdR53s3fvMfLd8idPlqapOoA.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Food Trucks
+     </h4>
+     <p class="text-gray-600 mb-4">
+		Simplify ordering and enhance customer experience by offering a digital menu that can be accessed via QR code.
+     </p>
+    </div>
+	
+	<div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-reveal hover-zoom">
+     <img alt="Event venue with a digital menu for catering services" class="w-full rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/1IbmKwV6QZpiEdwGpDYepffcYNIbi9t29olAXOud1QZexSdQB.jpg" width="300"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Gyms & Fitness Centers
+     </h4>
+     <p class="text-gray-600 mb-4">
+		Provide your members with easy access to class schedules, workout plans, and membership details through a digital platform.
+     </p>
+    </div>
+	
+   </div>
+  </section>
+   <section class="py-16 px-4 md:px-8 lg:px-16 bg-gray-100">
+   <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold text-gray-800">
+     Key Benefits of QRMenuHub
+    </h2>
+    <h3 class="text-xl text-gray-500 mt-4">
+     Discover how QRMenuHub makes managing your digital menu easy, efficient, and eco-friendly.
+    </h3>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Benefit 1: Effortless Menu Customization -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover-zoom">
+     <img alt="Icon of a pencil representing effortless menu customization" class="w-16 h-16 mx-auto mb-4" height="64" src="https://storage.googleapis.com/a1aa/image/8yqii4iTgKLXNpQI4tjtFYIDIv74dQg0KWtwDkEH3w6uI1BF.jpg" width="64"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Effortless Menu Customization
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Easily create and update your menu with a few clicks. Add new items, update prices, or change categories in real-time to keep your menu fresh and accurate.
+     </p>
+    </div>
+    <!-- Benefit 2: Real-Time Updates -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover-zoom">
+     <img alt="Icon of a refresh symbol representing real-time updates" class="w-16 h-16 mx-auto mb-4" height="64" src="https://storage.googleapis.com/a1aa/image/ob9cvTepFZwDBadBPgyRxhtazlWe6QDGg1MZvwoMZnH6iUHUA.jpg" width="64"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Real-Time Updates
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Make instant changes to your menu that are instantly reflected across all customer devices. Whether it's a price change, new item, or special offer, you’re always up to date.
+     </p>
+    </div>
+    <!-- Benefit 3: Enhance Customer Experience -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover-zoom">
+     <img alt="Icon of a happy customer representing enhanced customer experience" class="w-16 h-16 mx-auto mb-4" height="64" src="https://storage.googleapis.com/a1aa/image/JBhxvwIuFJZDNxXTh9dzaLZ7FzXEDbpeeTw2Fot22ZR9iUHUA.jpg" width="64"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Enhance Customer Experience
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Let customers explore your offerings interactively with beautiful, easy-to-read menus on their phones. With high-quality images and detailed descriptions, customers can make informed choices.
+     </p>
+    </div>
+    <!-- Benefit 4: Eco-Friendly and Sustainable -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover-zoom">
+     <img alt="Icon of a leaf representing eco-friendliness and sustainability" class="w-16 h-16 mx-auto mb-4" height="64" src="https://storage.googleapis.com/a1aa/image/QgJCDmv5ZAoYARokNo665yKK353mRTAvdPgnq3bw9ZLvI1BF.jpg" width="64"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Eco-Friendly and Sustainable
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Say goodbye to paper menus and contribute to a greener world. QRMenuHub helps you reduce waste and promote sustainability by going digital.
+     </p>
+    </div>
+    <!-- Benefit 5: Cost-Effective Solution -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover-zoom">
+     <img alt="Icon of a dollar sign representing cost-effectiveness" class="w-16 h-16 mx-auto mb-4" height="64" src="https://storage.googleapis.com/a1aa/image/qzpJONvjfOwDJCP9PdlJfGPTfEx4QCHty6OWiBvvOqa9FpOoA.jpg" width="64"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Cost-Effective Solution
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Cut costs on printing and updating physical menus. QRMenuHub helps you reduce operational costs while improving efficiency by providing a digital, always-updated alternative.
+     </p>
+    </div>
+	<!-- Benefit 6: Analytics and Insights -->
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover-zoom">
+     <img alt="Icon of a dollar sign representing cost-effectiveness" class="w-16 h-16 mx-auto mb-4" height="64" src="https://storage.googleapis.com/a1aa/image/VAojioqcZXYMDtI9FDX4avIAHmHWgu4KHUGp9Zl0B6hMW1BF.jpg" width="64"/>
+     <h4 class="text-2xl font-bold text-gray-800 mb-2">
+      Analytics and Insights
+     </h4>
+     <p class="text-gray-600 mb-4">
+      Cut costs on printing and updating physical menus. QRMenuHub helps you reduce operational costs while improving efficiency by providing a digital, always-updated alternative.
+     </p>
+    </div>
+   </div>
+   <div class="text-center mt-12">
+    <a class="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-600 transition-colors duration-300" href="#">
+    Gain valuable insights into customer preferences and menu performance. Use data analytics to make informed decisions and optimize your offerings.
+    </a>
+   </div>
+  </section>
+  <section class="py-12">
+   <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">
+     Real Stories, Real Success
+    </h2>
+    <h3 class="text-xl text-center mb-12">
+     How QRMenuHub Helps Businesses Thrive
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+      <img alt="Professional headshot of Emily Roberts, Owner of Fresh Bites Café" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/QFNE2FSnXNqOJ9Kh52kHUqyivyabZNc0UUelz9xKtHwJ6qDKA.jpg" width="100"/>
+      <h4 class="text-lg font-semibold text-center">
+       Emily Roberts
+      </h4>
+      <p class="text-center text-gray-600">
+       Owner of Fresh Bites Café
+      </p>
+      <p class="mt-4 text-center">
+       "QRMenuHub helped us streamline our menu process and improve customer engagement. It's been a game-changer for our café!"
+      </p>
+      <div class="flex justify-center mt-4">
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+      </div>
+     </div>
+     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+      <img alt="Professional headshot of Chris Williams, Manager of Salon Glow" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/Sk3TCt0ne6SXPqOJUjYc1UYnz0u8fu4Ceqg2JPPOGhEiorOoA.jpg" width="100"/>
+      <h4 class="text-lg font-semibold text-center">
+       Chris Williams
+      </h4>
+      <p class="text-center text-gray-600">
+       Manager of Salon Glow
+      </p>
+      <p class="mt-4 text-center">
+       "We’ve seen a huge improvement in customer satisfaction. It’s so easy to update and customize our services in real time."
+      </p>
+      <div class="flex justify-center mt-4">
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+      </div>
+     </div>
+     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+      <img alt="Professional headshot of Sarah Johnson, Owner of Sarah's Boutique" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/RuURiQyM8QbiEFMeAB0bL0RVGMeuE5hBCrMu1PogOfpkorOoA.jpg" width="100"/>
+      <h4 class="text-lg font-semibold text-center">
+       Sarah Johnson
+      </h4>
+      <p class="text-center text-gray-600">
+       Owner of Sarah's Boutique
+      </p>
+      <p class="mt-4 text-center">
+       "QRMenuHub has revolutionized the way we present our products. Our customers love the convenience!"
+      </p>
+      <div class="flex justify-center mt-4">
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+      </div>
+     </div>
+     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+      <img alt="Professional headshot of Michael Brown, Owner of Brown's Gym" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/Vct9No7dhv7vFpvKCguNSD4luLTpNRjX0WVSGoeQyogK6qDKA.jpg" width="100"/>
+      <h4 class="text-lg font-semibold text-center">
+       Michael Brown
+      </h4>
+      <p class="text-center text-gray-600">
+       Owner of Brown's Gym
+      </p>
+      <p class="mt-4 text-center">
+       "Our members appreciate the easy access to our schedules and services. QRMenuHub has been fantastic!"
+      </p>
+      <div class="flex justify-center mt-4">
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+       <span class="text-yellow-500">
+        <i class="fas fa-star">
+        </i>
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="text-center mt-12">
+     <a class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition-transform transform hover:scale-105" href="#">
+      Ready to Join These Businesses? Start Your Digital Transformation Now!
+     </a>
+    </div>
+   </div>
+  </section>
+  
+   <section class="container mx-auto p-6">
+   <h1 class="text-3xl font-bold text-center mb-8">
+    How It Works
+   </h1>
+   <div class="relative">
+    <!-- Vertical Timeline for Mobile -->
+    <div class="lg:hidden">
+     <div class="flex flex-col items-center">
+      <!-- Step 1 -->
+      <div class="flex flex-col items-center mb-8 timeline-step">
+       <img alt="Illustration of a computer or smartphone showing a registration screen or form" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/a1f8weNQoKpVxkUdS9uKfDWFEfA7YH8XMtvXOuAjU91NOYdQB.jpg" width="300"/>
+       <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mb-4">
+        <i class="fas fa-user-plus">
+        </i>
+       </div>
+       <h2 class="text-xl font-bold mb-2">
+        Step 1: Get Started with a Free Account
+       </h2>
+       <p class="text-center mb-4">
+        Sign up for free in minutes and get immediate access to our easy-to-use digital menu creation tools. Whether you're a restaurant owner, a bakery, or a salon, QRMenuHub makes getting started quick and easy.
+       </p>
+      </div>
+      <!-- Step 2 -->
+      <div class="flex flex-col items-center mb-8 timeline-step">
+       <img alt="Illustration of a design interface on a desktop or tablet, showing customizable menu elements" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/cHnwWLLs5EYmEJTczUkCfbvtJXxiWahJGPtmIUelRCbgDWHUA.jpg" width="300"/>
+       <div class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
+        <i class="fas fa-edit">
+        </i>
+       </div>
+       <h2 class="text-xl font-bold mb-2">
+        Step 2: Personalize Your Menu
+       </h2>
+       <p class="text-center mb-4">
+        Design your menu to reflect your brand's style. Use our intuitive drag-and-drop interface to upload photos, change colors, add categories, and set pricing — no coding skills required.
+       </p>
+      </div>
+      <!-- Step 3 -->
+      <div class="flex flex-col items-center mb-8 timeline-step">
+       <img alt="Illustration of a QR code being scanned by a phone or tablet" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/RLMFcxCOaErSCFqW52ZRseLuDWnNL4E1h9pWRUI2IdKyBrDKA.jpg" width="300"/>
+       <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center mb-4">
+        <i class="fas fa-qrcode">
+        </i>
+       </div>
+       <h2 class="text-xl font-bold mb-2">
+        Step 3: Publish Your Digital Menu
+       </h2>
+       <p class="text-center mb-4">
+        Once you're happy with your design, hit 'Publish' to go live! Instantly receive a custom QR code that you can share with your customers—on your tables, menus, or online.
+       </p>
+      </div>
+      <!-- Step 4 -->
+      <div class="flex flex-col items-center mb-8 timeline-step">
+       <img alt="Illustration of a business owner updating the menu on a tablet or phone" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/lL0ZUOTTsDLsKNoKteS7UMd7PUiajfX25Opu9zV1G1ChDWHUA.jpg" width="300"/>
+       <div class="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mb-4">
+        <i class="fas fa-sync-alt">
+        </i>
+       </div>
+       <h2 class="text-xl font-bold mb-2">
+        Step 4: Keep Your Menu Updated Instantly
+       </h2>
+       <p class="text-center mb-4">
+        Make changes to your menu anytime. Whether you add a new dish, update prices, or change item availability, your customers will always see the most current version right away.
+       </p>
+      </div>
+     </div>
+    </div>
+    <!-- Horizontal Timeline for Desktop -->
+    <div class="hidden lg:flex justify-between items-start">
+     <!-- Step 1 -->
+     <div class="flex flex-col items-center w-1/4 timeline-step">
+      <img alt="Illustration of a computer or smartphone showing a registration screen or form" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/a1f8weNQoKpVxkUdS9uKfDWFEfA7YH8XMtvXOuAjU91NOYdQB.jpg" width="300"/>
+      <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mb-4">
+       <i class="fas fa-user-plus">
+       </i>
+      </div>
+      <h2 class="text-xl font-bold mb-2 text-center">
+       Step 1: Get Started with a Free Account
+      </h2>
+      <p class="text-center mb-4">
+       Sign up for free in minutes and get immediate access to our easy-to-use digital menu creation tools. Whether you're a restaurant owner, a bakery, or a salon, QRMenuHub makes getting started quick and easy.
+      </p>
+     </div>
+     <!-- Step 2 -->
+     <div class="flex flex-col items-center w-1/4 timeline-step">
+      <img alt="Illustration of a design interface on a desktop or tablet, showing customizable menu elements" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/cHnwWLLs5EYmEJTczUkCfbvtJXxiWahJGPtmIUelRCbgDWHUA.jpg" width="300"/>
+      <div class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
+       <i class="fas fa-edit">
+       </i>
+      </div>
+      <h2 class="text-xl font-bold mb-2 text-center">
+       Step 2: Personalize Your Menu
+      </h2>
+      <p class="text-center mb-4">
+       Design your menu to reflect your brand's style. Use our intuitive drag-and-drop interface to upload photos, change colors, add categories, and set pricing — no coding skills required.
+      </p>
+     </div>
+     <!-- Step 3 -->
+     <div class="flex flex-col items-center w-1/4 timeline-step">
+      <img alt="Illustration of a QR code being scanned by a phone or tablet" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/RLMFcxCOaErSCFqW52ZRseLuDWnNL4E1h9pWRUI2IdKyBrDKA.jpg" width="300"/>
+      <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center mb-4">
+       <i class="fas fa-qrcode">
+       </i>
+      </div>
+      <h2 class="text-xl font-bold mb-2 text-center">
+       Step 3: Publish Your Digital Menu
+      </h2>
+      <p class="text-center mb-4">
+       Once you're happy with your design, hit 'Publish' to go live! Instantly receive a custom QR code that you can share with your customers—on your tables, menus, or online.
+      </p>
+     </div>
+     <!-- Step 4 -->
+     <div class="flex flex-col items-center w-1/4 timeline-step">
+      <img alt="Illustration of a business owner updating the menu on a tablet or phone" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/lL0ZUOTTsDLsKNoKteS7UMd7PUiajfX25Opu9zV1G1ChDWHUA.jpg" width="300"/>
+      <div class="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mb-4">
+       <i class="fas fa-sync-alt">
+       </i>
+      </div>
+      <h2 class="text-xl font-bold mb-2 text-center">
+       Step 4: Keep Your Menu Updated Instantly
+      </h2>
+      <p class="text-center mb-4">
+       Make changes to your menu anytime. Whether you add a new dish, update prices, or change item availability, your customers will always see the most current version right away.
+      </p>
+     </div>
+    </div>
+   </div>
+   <!-- Call to Action -->
+   <div class="text-center mt-12">
+    <a class="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-bold hover:bg-green-600 transition duration-300" href="#">
+     Start Your Free Trial
+    </a>
+   </div>
+  </section>
+  <section class="bg-gradient-to-r from-blue-500 to-green-500 text-white py-16 px-4 text-center">
+   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div>
+     <h2 class="text-4xl font-bold mb-4">
+      Start Your Free Trial Today – No Credit Card Required
+     </h2>
+     <p class="text-lg mb-6">
+      With QRMenuHub, you can create, update, and manage your digital menu instantly—all for free, no commitment required.
+     </p>
+     <ul class="text-left mb-6">
+      <li class="flex items-center mb-2">
+       <i class="fas fa-check-circle mr-2">
+       </i>
+       Instant setup and customizable design templates.
+      </li>
+      <li class="flex items-center mb-2">
+       <i class="fas fa-check-circle mr-2">
+       </i>
+       Real-time updates to your menu.
+      </li>
+      <li class="flex items-center mb-2">
+       <i class="fas fa-check-circle mr-2">
+       </i>
+       Reduce paper waste and go eco-friendly.
+      </li>
+      <li class="flex items-center mb-2">
+       <i class="fas fa-check-circle mr-2">
+       </i>
+       Access from any device – no app required.
+      </li>
+      <li class="flex items-center mb-2">
+       <i class="fas fa-check-circle mr-2">
+       </i>
+       24/7 customer support to help you every step of the way.
+      </li>
+     </ul>
+     <button class="bg-white text-blue-500 font-bold py-3 px-6 rounded-full text-lg hover:bg-gray-200 transition duration-300">
+      Start My Free Trial
+     </button>
+     <p class="mt-4 text-sm">
+      Limited Time Offer – Start Today and Get an Extra Week Free!
+     </p>
+    </div>
+    <div>
+     <img alt="Happy restaurant owner using a tablet to manage digital menu" class="mx-auto mb-6" height="400" src="https://storage.googleapis.com/a1aa/image/pVe0QpjEq5QBZSnbfhTcrJJVEEPHJTrT6br8e8wJ1ZPltsOoA.jpg" width="600"/>
+     <p class="text-lg italic">
+      “QRMenuHub made it so easy for us to transition to digital menus. We’ve seen a huge improvement in customer engagement and reduced waste—plus, the free trial made it risk-free to try.” – John Doe, Restaurant Owner
+     </p>
+    </div>
+   </div>
+  </section>
+  <!-- Main Navigation -->
+  <nav class="bg-white shadow-md">
+   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a class="text-2xl font-bold text-gray-800" href="#">
+     QRMenuHub
+    </a>
+    <ul class="flex space-x-6">
+     <li>
+      <a class="text-gray-600 hover:text-gray-800" href="#">
+       About Us
+      </a>
+     </li>
+     <li>
+      <a class="text-gray-600 hover:text-gray-800" href="#">
+       Features
+      </a>
+     </li>
+     <li>
+      <a class="text-gray-600 hover:text-gray-800" href="#">
+       Pricing
+      </a>
+     </li>
+     <li>
+      <a class="text-gray-600 hover:text-gray-800" href="#">
+       Blog
+      </a>
+     </li>
+     <li>
+      <a class="text-gray-600 hover:text-gray-800" href="#">
+       FAQ
+      </a>
+     </li>
+     <li>
+      <a class="text-gray-600 hover:text-gray-800" href="#">
+       Support
+      </a>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Contact Us Section -->
+  <section class="container mx-auto px-4 py-16">
+   <div class="bg-white shadow-md rounded-lg p-8 flex flex-col md:flex-row">
+    <!-- Contact Form -->
+    <div class="md:w-1/2 md:pr-8 slide-in-left">
+     <h2 class="text-2xl font-bold mb-6">
+      Contact Us
+     </h2>
+     <form action="#" method="POST">
+      <div class="mb-4">
+       <label class="block text-gray-700" for="name">
+        Name
+        <span class="text-red-500">
+         *
+        </span>
+       </label>
+       <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="name" name="name" required="" type="text"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700" for="email">
+        Email
+        <span class="text-red-500">
+         *
+        </span>
+       </label>
+       <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" name="email" required="" type="email"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700" for="phone">
+        Phone (Optional)
+       </label>
+       <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="phone" name="phone" type="tel"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-700" for="message">
+        Message
+        <span class="text-red-500">
+         *
+        </span>
+       </label>
+       <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="message" name="message" placeholder="Please describe your issue or inquiry" required="" rows="5"></textarea>
+      </div>
+      <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600" type="submit">
+       Send Message
+      </button>
+     </form>
+     <p class="text-sm text-gray-600 mt-4">
+      We respect your privacy. Your information will not be shared and will only be used to respond to your inquiry.
+     </p>
+    </div>
+    <!-- Contact Information -->
+    <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0 slide-in-right">
+     <h2 class="text-2xl font-bold mb-6">
+      Get in Touch
+     </h2>
+     <p class="mb-4">
+      Feel free to reach out to us through any of the following methods:
+     </p>
+     <div class="mb-4">
+      <i class="fas fa-envelope text-gray-700">
+      </i>
+      <a class="text-gray-700 ml-2" href="mailto:contact@qrmenuhub.com">
+       contact@qrmenuhub.com
+      </a>
+     </div>
+     <div class="mb-4">
+      <i class="fas fa-phone text-gray-700">
+      </i>
+      <span class="text-gray-700 ml-2">
+       (555) 123-4567
+      </span>
+      <p class="text-sm text-gray-600 ml-8">
+       Support hours: Monday–Friday, 9 AM to 6 PM EST
+      </p>
+     </div>
+     <div class="mb-4">
+      <i class="fas fa-map-marker-alt text-gray-700">
+      </i>
+      <span class="text-gray-700 ml-2">
+       123 Business Avenue, Suite 400, City, State, ZIP Code
+      </span>
+     </div>
+     <div class="flex space-x-4 mt-4">
+      <a class="text-gray-700 hover:text-gray-900" href="#">
+       <i class="fab fa-facebook-f">
+       </i>
+      </a>
+      <a class="text-gray-700 hover:text-gray-900" href="#">
+       <i class="fab fa-instagram">
+       </i>
+      </a>
+      <a class="text-gray-700 hover:text-gray-900" href="#">
+       <i class="fab fa-linkedin-in">
+       </i>
+      </a>
+      <a class="text-gray-700 hover:text-gray-900" href="#">
+       <i class="fab fa-twitter">
+       </i>
+      </a>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-12">
+   <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 text-center md:text-left">
+    <!-- Column 1: Follow Us -->
+    <div class="slide-in-left">
+     <img alt="QRMenuHub logo with a QR code and a digital menu icon" class="mx-auto md:mx-0" height="50" src="https://storage.googleapis.com/a1aa/image/PW3b08jeeSosL0mvGV2SyiL8LkJJh1VJMpacxV7djBcDrWHUA.jpg" width="150"/>
+     <h3 class="text-lg font-bold mb-4 mt-4">
+      Follow Us
+     </h3>
+     <div class="flex justify-center md:justify-start space-x-4">
+      <a class="hover:text-gray-400" href="#">
+       <i class="fab fa-facebook-f">
+       </i>
+      </a>
+      <a class="hover:text-gray-400" href="#">
+       <i class="fab fa-instagram">
+       </i>
+      </a>
+      <a class="hover:text-gray-400" href="#">
+       <i class="fab fa-linkedin-in">
+       </i>
+      </a>
+      <a class="hover:text-gray-400" href="#">
+       <i class="fab fa-twitter">
+       </i>
+      </a>
+     </div>
+    </div>
+ 
+    <!-- Column 3: Contact Information -->
+    <div class="slide-in-left">
+     <h3 class="text-lg font-bold mb-4">
+      Contact Information
+     </h3>
+     <p class="mb-2">
+      <i class="fas fa-envelope">
+      </i>
+      <a class="hover:underline" href="mailto:contact@qrmenuhub.com">
+       contact@qrmenuhub.com
+      </a>
+     </p>
+     <p class="mb-2">
+      <i class="fas fa-phone">
+      </i>
+      (555) 123-4567
+     </p>
+     <p class="text-sm text-gray-400">
+      Support hours: Monday–Friday, 9 AM to 6 PM EST
+     </p>
+     <p class="mb-2">
+      <i class="fas fa-map-marker-alt">
+      </i>
+      123 Business Avenue, Suite 400, City, State, ZIP Code
+     </p>
+    </div>
+    <!-- Column 4: Newsletter Signup -->
+    <div class="slide-in-right">
+     <h3 class="text-lg font-bold mb-4">
+      Newsletter
+     </h3>
+     <form action="#" method="POST">
+      <input class="w-full px-4 py-2 mb-4 text-gray-800 rounded-lg focus:outline-none" name="email" placeholder="Your email address" required="" type="email"/>
+      <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600" type="submit">
+       Subscribe Now
+      </button>
+     </form>
+     <p class="text-sm text-gray-400 mt-2">
+      We respect your privacy. No spam.
+     </p>
+    </div>
+    <!-- Column 5: Legal Information -->
+    <div class="slide-in-left">
+     <h3 class="text-lg font-bold mb-4">
+      Legal
+     </h3>
+     <ul>
+      <li class="mb-2">
+       <a class="hover:underline" href="#">
+        Privacy Policy
+       </a>
+      </li>
+      <li class="mb-2">
+       <a class="hover:underline" href="#">
+        Terms of Service
+       </a>
+      </li>
+      <li class="mb-2">
+       <a class="hover:underline" href="#">
+        Cookie Policy
+       </a>
+      </li>
+      <li class="mb-2">
+       <a class="hover:underline" href="#">
+        Refund/Return Policy
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="text-center text-gray-400 mt-8">
+    <p>
+     © 2023 QRMenuHub. All rights reserved.
+    </p>
+   </div>
+  </footer>
+  <script>
+     document.getElementById('menu-btn').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+  
+   document.addEventListener('DOMContentLoaded', function() {
+     const scrollElements = document.querySelectorAll('.scroll-reveal');
+     const elementInView = (el, dividend = 1) => {
+       const elementTop = el.getBoundingClientRect().top;
+       return (
+         elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+       );
+     };
+     const displayScrollElement = (element) => {
+       element.classList.add('visible');
+     };
+     const handleScrollAnimation = () => {
+       scrollElements.forEach((el) => {
+         if (elementInView(el, 1.25)) {
+           displayScrollElement(el);
+         }
+       });
+     };
+     window.addEventListener('scroll', () => {
+       handleScrollAnimation();
+     });
+     handleScrollAnimation(); // Initial check
+   });
+
+	document.addEventListener('scroll', function() {
+				const steps = document.querySelectorAll('.timeline-step');
+				steps.forEach(step => {
+					const rect = step.getBoundingClientRect();
+					if (rect.top < window.innerHeight && rect.bottom >= 0) {
+						step.classList.add('visible');
+					}
+				});
+			});
+  </script>
+ </body>
+</html>
