@@ -10,6 +10,16 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <style>
+  body {
+      background-color: #111827;
+      color: #f3f4f6;
+    }
+    .dark-bg {
+      background-color: #1f2937;
+    }
+    .darker-bg {
+      background-color: #111827;
+    }
    .scroll-reveal {
      opacity: 0;
      transform: translateY(20px);
@@ -87,10 +97,34 @@
             }
         
   </style>
+  <script>
+        // Right-click নিষ্ক্রিয় করতে
+        document.addEventListener('contextmenu', (event) => event.preventDefault());
+
+        // কীবোর্ড শর্টকাট নিষ্ক্রিয় করতে
+        document.addEventListener('keydown', (event) => {
+            if (
+                (event.ctrlKey && event.key === 's') || // Ctrl+S
+                (event.ctrlKey && event.key === 'u') || // Ctrl+U
+                (event.ctrlKey && event.key === 'c') || // Ctrl+C
+                (event.key === 'F12')                  // F12
+            ) {
+                event.preventDefault();
+                alert("This action is disabled on this website.");
+            }
+        });
+
+        // Address bar থেকে লিংক কপি প্রতিরোধ (Referrer কে হ্যান্ডল করা)
+        window.onload = () => {
+            if (window.location !== window.parent.location) {
+                window.parent.location = window.location;
+            }
+        };
+    </script>
  </head>
  <body class="font-roboto">
   <!-- Header -->
-  <header class="sticky top-0 bg-white shadow-md z-50">
+  <header class="sticky top-0 darker-bg shadow-md z-50">
    <div class="container mx-auto flex justify-between items-center p-4">
     <!-- Logo -->
     <div class="flex items-center">
@@ -98,26 +132,26 @@
     </div>
     <!-- Navigation Menu -->
     <nav class="hidden md:flex space-x-6">
-    <a class="text-gray-700 hover:text-blue-500" href="#">
+    <a class="text-gray-100 hover:text-blue-500" href="#">
       Home
      </a>
-     <a class="text-gray-700 hover:text-blue-500" href="#howtowork">
+     <a class="text-gray-100 hover:text-blue-500" href="#howtowork">
       How It Works
      </a>
-     <a class="text-gray-700 hover:text-blue-500" href="#features">
+     <a class="text-gray-100 hover:text-blue-500" href="#features">
       Features
      </a>
-         <a class="text-gray-700 hover:text-blue-500" href="#why">
+         <a class="text-gray-100 hover:text-blue-500" href="#why">
       Why QRMenuHub
      </a>
-	<a class="text-gray-700 hover:text-blue-500" href="#price">
+	<a class="text-gray-100 hover:text-blue-500" href="#price">
      Price
      </a>
      </a>
-         <a class="text-gray-700 hover:text-blue-500" href="#easyuse">
+         <a class="text-gray-100 hover:text-blue-500" href="#easyuse">
       Eays Use
      </a>
-     <a class="text-gray-700 hover:text-blue-500" href="#contact">
+     <a class="text-gray-100 hover:text-blue-500" href="#contact">
       Contact
      </a>
      <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
@@ -134,26 +168,26 @@
    </div>
    <!-- Mobile Menu -->
    <div class="hidden md:hidden" id="mobile-menu">
-   <a class="text-gray-700 hover:text-blue-500" href="#">
+   <a class="text-gray-100 hover:text-blue-500" href="#">
       Home
      </a>
-     <a class="text-gray-700 hover:text-blue-500" href="#howtowork">
+     <a class="text-gray-100 hover:text-blue-500" href="#howtowork">
       How It Works
      </a>
-     <a class="text-gray-700 hover:text-blue-500" href="#features">
+     <a class="text-gray-100 hover:text-blue-500" href="#features">
       Features
      </a>
-         <a class="text-gray-700 hover:text-blue-500" href="#why">
+         <a class="text-gray-100 hover:text-blue-500" href="#why">
       Why QRMenuHub
      </a>
-	<a class="text-gray-700 hover:text-blue-500" href="#price">
+	<a class="text-gray-100 hover:text-blue-500" href="#price">
      Price
      </a>
      </a>
-         <a class="text-gray-700 hover:text-blue-500" href="#easyuse">
+         <a class="text-gray-100 hover:text-blue-500" href="#easyuse">
       Eays Use
      </a>
-     <a class="text-gray-700 hover:text-blue-500" href="#contact">
+     <a class="text-gray-100 hover:text-blue-500" href="#contact">
       Contact
      </a>
     <button class="block w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
@@ -179,19 +213,19 @@
    </div>
   </section>
   <!-- Introduction to QRMenuHub Section -->
-  <section class="bg-gray-100 py-16">
+  <section class="dark-bg py-16">
    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
     <div class="md:w-1/2 text-center md:text-left">
-     <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+     <h2 class="text-3xl md:text-4xl font-bold text-gray-100">
       Welcome to QRMenuHub: Your Digital Menu Solution
      </h2>
      <h3 class="text-xl md:text-2xl text-gray-600 mt-4">
       Empowering your business with seamless, interactive, and eco-friendly digital menus.
      </h3>
-     <p class="mt-6 text-gray-700 text-lg md:text-xl">
+     <p class="mt-6 text-gray-00 text-lg md:text-xl">
       QRMenuHub allows businesses to seamlessly transition from paper menus to dynamic digital experiences that enhance customer engagement and simplify menu management.
      </p>
-     <p class="mt-2 text-gray-700 text-lg md:text-xl">
+     <p class="mt-2 text-gray-100 text-lg md:text-xl">
       From restaurants to salons, our platform offers a fully customizable solution to keep your menu up-to-date, eco-friendly, and accessible at the scan of a QR code.
      </p>
      <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">
@@ -202,10 +236,8 @@
      <img alt="Image showing a customer in a restaurant scanning a QR code on their smartphone to view a digital menu" class="w-full h-auto rounded-lg shadow-lg" height="500" src="https://storage.googleapis.com/a1aa/image/3jvbmUWHHKZCGxzieyYLqCrRKf9pebDAfeQ4WS0izlSl1h6gC.jpg" width="800"/>
     </div>
    </div>
-  </section>
-  <!-- Key Benefits Section -->
-  <section class="bg-white py-16">
-   <div class="container mx-auto px-4">
+
+   <div class="container mx-auto px-4 py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
      <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
       <i class="fas fa-sync-alt text-4xl text-blue-500 mb-4">
@@ -250,9 +282,9 @@
     </div>
    </div>
   </section>
-  <section class="py-16 px-4 md:px-8 lg:px-16" id="howtowork">
+  <section class="darker-bg  py-16 px-4 md:px-8 lg:px-16" id="howtowork">
    <div class="text-center mb-12">
-    <h2 class="text-4xl font-bold text-gray-800 scroll-reveal">
+    <h2 class="text-4xl font-bold text-gray-100 scroll-reveal">
      How QRMenuHub Works
     </h2>
     <h3 class="text-xl text-gray-500 mt-4 scroll-reveal">
@@ -304,7 +336,7 @@
     </div>
    </div>
    <div class="text-center mt-12">
-    <h4 class="text-2xl font-bold text-gray-800 mb-4 scroll-reveal">
+    <h4 class="text-2xl font-bold text-gray-100 mb-4 scroll-reveal">
      Key Benefits
     </h4>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -352,9 +384,15 @@
     </a>
    </div>
   </section>
-   <section class="py-16 px-4 md:px-8 lg:px-16" id="features">
+  
+  
+  
+  
+  
+  
+   <section class="dark-bg py-16 px-4 md:px-8 lg:px-16" id="features">
    <div class="text-center mb-12">
-    <h2 class="text-4xl font-bold text-gray-800 scroll-reveal">
+    <h2 class="text-4xl font-bold text-gray-100 scroll-reveal">
      Industries We Serve
     </h2>
     <h3 class="text-xl text-gray-500 mt-4 scroll-reveal">
@@ -454,9 +492,20 @@
 	
    </div>
   </section>
-   <section class="py-16 px-4 md:px-8 lg:px-16 bg-gray-100" id="why">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   <section class="darker-bg py-16 px-4 md:px-8 lg:px-16 barker-bg" id="why">
    <div class="text-center mb-12">
-    <h2 class="text-4xl font-bold text-gray-800">
+    <h2 class="text-4xl font-bold text-gray-100">
      Key Benefits of QRMenuHub
     </h2>
     <h3 class="text-xl text-gray-500 mt-4">
@@ -525,18 +574,14 @@
      </p>
     </div>
    </div>
-   <div class="text-center mt-12">
-    <a class="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-600 transition-colors duration-300" href="#">
-    Gain valuable insights into customer preferences and menu performance. Use data analytics to make informed decisions and optimize your offerings.
-    </a>
-   </div>
+
   </section>
 
-
-<div class="container mx-auto p-6" id="price">
+<section class="dark-bg py-16">
+<div class=" container mx-auto p-6" id="price">
         <header class="text-center mb-12">
-            <h1 class="text-5xl font-bold mb-4 text-gray-900">Find the Ideal Plan for Your Business Needs</h1>
-            <p class="text-2xl text-gray-600">Flexible Solutions for Restaurants, Cafes, Bars, and More</p>
+            <h1 class="text-5xl font-bold mb-4 text-gray-100">Find the Ideal Plan for Your Business Needs</h1>
+            <p class="text-2xl text-gray-700">Flexible Solutions for Restaurants, Cafes, Bars, and More</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -545,7 +590,7 @@
                 <h2 class="text-3xl font-bold mb-4 text-gray-900">Basic Plan</h2>
                 <p class="text-2xl font-semibold mb-4 text-blue-500">$XX/month (or $XX/year)</p>
                 <p class="text-gray-600 mb-6">Perfect for small businesses just getting started. This plan includes the essential features to help you establish a digital presence for your menu.</p>
-                <ul class="mb-6 space-y-2">
+                <ul class="mb-6 space-y-2  text-gray-900">
                     <li class="flex items-center border-b pb-2"><i class="fas fa-check text-green-500 mr-2"></i> 1 Digital Menu</li>
                     <li class="flex items-center border-b pb-2"><i class="fas fa-check text-green-500 mr-2"></i> Mobile & Tablet Compatibility</li>
                     <li class="flex items-center border-b pb-2"><i class="fas fa-check text-green-500 mr-2"></i> Customizable Menu Layouts</li>
@@ -561,7 +606,7 @@
                 <h2 class="text-3xl font-bold mb-4 text-gray-900">Professional Plan</h2>
                 <p class="text-2xl font-semibold mb-4 text-green-500">$XX/month (or $XX/year)</p>
                 <p class="text-gray-600 mb-6">Ideal for growing establishments looking for additional customization, insights, and multiple menu options. Scale your operations and deliver a top-tier user experience.</p>
-                <ul class="mb-6 space-y-2">
+                <ul class="mb-6 space-y-2  text-gray-900">
                     <li class="flex items-center border-b pb-2"><i class="fas fa-check text-green-500 mr-2"></i> Up to 3 Digital Menus</li>
                     <li class="flex items-center border-b pb-2"><i class="fas fa-check text-green-500 mr-2"></i> Advanced Menu Customization (Color schemes, logos, etc.)</li>
                     <li class="flex items-center border-b pb-2"><i class="fas fa-check text-green-500 mr-2"></i> In-depth Analytics (Customer behavior, peak times, etc.)</li>
@@ -576,8 +621,8 @@
             <div class="bg-[#ccf6db] p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
                 <h2 class="text-3xl font-bold mb-4 text-gray-900">Premium Plan</h2>
                 <p class="text-2xl font-semibold mb-4 text-yellow-500">$XX/month (or $XX/year)</p>
-                <p class="text-black-200 mb-6">Our most robust plan, designed for high-demand businesses that need full control and advanced features for a seamless customer experience.</p>
-                <ul class="mb-6 space-y-2">
+                <p class=" text-gray-900 mb-6">Our most robust plan, designed for high-demand businesses that need full control and advanced features for a seamless customer experience.</p>
+                <ul class="mb-6 space-y-2  text-gray-900">
                     <li class="flex items-center border-b border-gray-300 pb-2"><i class="fas fa-check text-green-500 mr-2"></i> Unlimited Digital Menus</li>
                     <li class="flex items-center border-b border-gray-300 pb-2"><i class="fas fa-check text-green-500 mr-2"></i> Full Customization (Advanced design tools, branding, etc.)</li>
                     <li class="flex items-center border-b border-gray-300 pb-2"><i class="fas fa-check text-green-500 mr-2"></i> Premium Analytics (In-depth customer insights, trends, etc.)</li>
@@ -592,10 +637,10 @@
 
         <!-- Comparison Table -->
         <div class="mt-12">
-            <h2 class="text-4xl font-bold text-center mb-6 text-gray-900">Comparison Table</h2>
+            <h2 class="text-4xl font-bold text-center mb-6 text-gray-100">Comparison Table</h2>
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-gray-100 rounded-lg shadow-lg">
-                    <thead>
+                    <thead >
                         <tr>
                             <th class="py-3 px-4 bg-gray-200 text-left text-gray-900">Feature</th>
                             <th class="py-3 px-4 bg-[#f0f6ff] text-center text-gray-900">Basic Plan</th>
@@ -603,7 +648,7 @@
                             <th class="py-3 px-4 bg-[#ccf6db] text-center text-gray-900">Premium Plan</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-gray-900">
                         <tr>
                             <td class="py-3 px-4 border-b bg-gray-200">Digital Menus</td>
                             <td class="py-3 px-4 border-b bg-[#f0f6ff]  text-center">1</td>
@@ -658,7 +703,7 @@
         </div>
     </div>
 
-
+</section>
 
 
 
@@ -819,13 +864,13 @@
     <h3 class="text-xl text-center mb-12">
      How QRMenuHub Helps Businesses Thrive
     </h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+    <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class=" bg-gray-600 border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
       <img alt="Professional headshot of Emily Roberts, Owner of Fresh Bites Café" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/QFNE2FSnXNqOJ9Kh52kHUqyivyabZNc0UUelz9xKtHwJ6qDKA.jpg" width="100"/>
       <h4 class="text-lg font-semibold text-center">
        Emily Roberts
       </h4>
-      <p class="text-center text-gray-600">
+      <p class="text-center text-yellow-500">
        Owner of Fresh Bites Café
       </p>
       <p class="mt-4 text-center">
@@ -854,12 +899,12 @@
        </span>
       </div>
      </div>
-     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+     <div class=" bg-gray-600 border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
       <img alt="Professional headshot of Chris Williams, Manager of Salon Glow" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/Sk3TCt0ne6SXPqOJUjYc1UYnz0u8fu4Ceqg2JPPOGhEiorOoA.jpg" width="100"/>
       <h4 class="text-lg font-semibold text-center">
        Chris Williams
       </h4>
-      <p class="text-center text-gray-600">
+      <p class="text-center text-yellow-500">
        Manager of Salon Glow
       </p>
       <p class="mt-4 text-center">
@@ -888,12 +933,12 @@
        </span>
       </div>
      </div>
-     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+     <div class=" bg-gray-600 border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
       <img alt="Professional headshot of Sarah Johnson, Owner of Sarah's Boutique" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/RuURiQyM8QbiEFMeAB0bL0RVGMeuE5hBCrMu1PogOfpkorOoA.jpg" width="100"/>
       <h4 class="text-lg font-semibold text-center">
        Sarah Johnson
       </h4>
-      <p class="text-center text-gray-600">
+      <p class="text-center text-yellow-500">
        Owner of Sarah's Boutique
       </p>
       <p class="mt-4 text-center">
@@ -922,12 +967,12 @@
        </span>
       </div>
      </div>
-     <div class="border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+     <div class="bg-gray-600 border p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
       <img alt="Professional headshot of Michael Brown, Owner of Brown's Gym" class="w-24 h-24 rounded-full mx-auto mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/Vct9No7dhv7vFpvKCguNSD4luLTpNRjX0WVSGoeQyogK6qDKA.jpg" width="100"/>
       <h4 class="text-lg font-semibold text-center">
        Michael Brown
       </h4>
-      <p class="text-center text-gray-600">
+      <p class="text-center text-yellow-500">
        Owner of Brown's Gym
       </p>
       <p class="mt-4 text-center">
